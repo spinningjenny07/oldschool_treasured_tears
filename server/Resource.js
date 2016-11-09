@@ -12,7 +12,7 @@ module.exports = function(mongoose) {
 		// comments: [Comment] // subdocument
 	});
 
-	var DVResource = mongoose.model("Resource", ResourceSchema);
+	var DVResource = mongoose.model("Resource", DVResourceSchema);
 
 	return DVResource;
 };

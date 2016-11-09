@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>Editor</title>
-	<link href="css/carousel.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous"></script>
@@ -18,7 +18,7 @@
 		Tags: <input type="text" id="new-blog-tags">
 		Summary: <textarea id="new-blog-summary"></textarea>
 		Content: <textarea id="new-blog-content"></textarea>
-		<button class="submit-new-blog">Submit</button>
+		<button id="submit-new-blog">Submit</button>
 	</div>
 
 
@@ -30,7 +30,7 @@
 		Summary: <input type="text" id="new-resource-summary">
 		Content: <textarea id="new-resource-content"></textarea>
 		Type: <input type="text" id="new-resource-type"> 
-		<button class="submit-new-resource">Submit</button>
+		<button id="submit-new-resource">Submit</button>
 	</div>
 
 	<script>
@@ -42,12 +42,16 @@
 				summary: $('#new-blog-summary').val(),
 				content: $('#new-blog-content').val()
 			}, function(response) {
-				var div = createBlogDiv(response);
-				$('#blogs').append(div);
-				// need to write the blogs div over in blog-list
-				div.find('.submit-new-blog').click(FUNCTION TO WRITE);
+				console.log("Blog successfully posted");
+
+				// var div = createBlogDiv(response);
+				// $('#blogs').append(div);
+				// // need to write the blogs div over in blog-list
+				// div.find('.submit-new-blog').click(FUNCTION TO WRITE);
 			});
 		}
+
+		$('#submit-new-blog').click(sendNewBlog);
 
 		function sendNewResource() {
 			$.post('/api/resource', {
@@ -57,12 +61,16 @@
 				content: $('#new-resource-content').val(),
 				type: $('#new-resource-type').val(),
 			}, function(response) {
-				var div = createResourceDiv(response);
-				$('#resources').append(div);
-				// need to write the resources div over in resources-list
-				div.find('.submit-new-resource').click(FUNCTION TO WRITE);
+				console.log();
+
+				// var div = createResourceDiv(response);
+				// $('#resources').append(div);
+				// // need to write the resources div over in resources-list
+				// div.find('.submit-new-resource').click(FUNCTION TO WRITE);
 			});
 		}
+
+		$('#submit-new-resource').click(sendNewResource);
 		
 
 	</script>

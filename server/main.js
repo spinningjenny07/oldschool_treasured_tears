@@ -12,24 +12,48 @@ mongoose.connect("mongodb://localhost");
 var BlogPostConstructor = require("./BlogPost.js");
 var BlogPost = BlogPostConstructor(mongoose);
 
-var ResourceConstructor = require("./Resource.js");
-var Resource = ResourceConstructor(mongoose);
+var DVResourceConstructor = require("./Resource.js");
+var DVResource = DVResourceConstructor(mongoose);
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
+app.use(express.static('FE'));
+
 // GET /
 app.get("/", (req, res) => {
-	res.sendFile(__dirname + "/index.html");
+	res.sendFile(__dirname + "/FE/index.html");
 });
 
-//GET /api/blogs
+//GET blog-editor
+app.get("/blog-editor", (req, res) => {
+	res.sendFile(__dirname + "/FE/blog-editor.html");
+});
+
+//GET blog-list
+app.get("/blog-list", (req, res) => {
+	res.sendFile(__dirname + "/FE/blog-list.html");
+});
+
+//GET resources-list
+app.get("/resources-list", (req, res) => {
+	res.sendFile(__dirname + "/FE/resources-list.html");
+});
+
+//GET Blog Post
+app.get("/blog", (req, res) => {
+	res.sendFile(__dirname + "/FE/blog.html");
+});
+
+
+
+//POST /api/blog - POST new blog
 app.post("/api/blog", (req, res) => {
-	var newBlog = newBlogPost({
+	var newBlog = new BlogPost({
 		title: req.body.title,
 		author: req.body.author,
-		date: Date.now,
+		date: Date.now(),
 		tags: req.body.tags,
 		summary: req.body.summary,
 		content: req.body.content
@@ -43,12 +67,12 @@ app.post("/api/blog", (req, res) => {
 		res.send(newBlog);
 	});
 });
-
+// POST/api/resource - POST a new resource
 app.post("/api/resource", (req, res) => {
-	var newResource = newDVResource({
+	var newResource = new DVResource({
 		title: req.body.title,
 		author: req.body.author,
-		date: Date.now,
+		date: Date.now(),
 		tags: req.body.tags,
 		summary: req.body.summary,
 		content: req.body.content,
@@ -63,6 +87,8 @@ app.post("/api/resource", (req, res) => {
 		res.send(newResource);
 	});
 });
+
+
 
 app.use((req, res, next) => {
 	res.status(404);

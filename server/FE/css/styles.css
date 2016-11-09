@@ -68,7 +68,7 @@ body {
 }
 
 
-/* MARKETING CONTENT
+/* NAV CONTENT
 -------------------------------------------------- */
 
 /* Center align the text within the three columns below the carousel */
@@ -84,6 +84,22 @@ body {
   margin-left: 10px;
 }
 
+/* RESOURCES-LIST
+________________________________________________________________*/
+
+.title {
+  background-image: url("images/climbing_sky.jpg");
+  background-color: #5a5a5a;
+  height: 500px;
+}
+
+
+/* EDITOR
+________________________________________________________________*/
+
+#blog-editor {
+  margin-bottom: 40px;
+}
 
 
 /* RESPONSIVE CSS
@@ -117,21 +133,5 @@ body {
 
 }
 
-/* RESOURCES-LIST
-________________________________________________________________*/
-
-.title {
-  background-image: url("images/climbing_sky.jpg");
-  background-color: #5a5a5a;
-  height: 500px;
-}
-
-
-/* EDITOR
-________________________________________________________________*/
-
-#blog-editor {
-  margin-bottom: 0px;
-}
 
 

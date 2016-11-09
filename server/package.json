@@ -4,13 +4,15 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0",
-    "express-session": "^1.14.2"
+    "express-session": "^1.14.2",
+    "mongoose": "^4.6.6"
   }
 }
