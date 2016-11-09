@@ -1,0 +1,50 @@
+Todo For This Week:
+
+Create a way to display blog posts from the database
+
+///// Treasured Tears Blog Specification:
+
+GET / 
+	see index.html DONE
+
+GET /api/blog-list 
+	JSON
+
+GET /api/blog-post
+	JSON
+
+GET /api/resources
+	JSON
+
+GET /api/survivors
+	JSON
+
+GET api/people_helpers
+	JSON
+
+GET api/loved_ones
+	JSON
+
+POST /api/blog_entry
+	JSON
+
+POST /api/comment (**BACKLOG)
+	JSON
+
+POST /api/recommend (**BACKLOG)
+	JSON
+
+///// Mongo Schemas:
+
+Blog
+	Title:
+	ingredients: [String]
+	crystals: Boolean
+	name: String
+	
+	//comments: [Comment] // subdocument
+
+Comment
+	author: String
+	content: String
+

@@ -1,8 +1,72 @@
-<div>
-	Title: <input type="" name="">
-	Author: <input type="" name="">
-	Tags: <input type="" name="">
-	Summary: <textarea></textarea>
-	Content: <textarea></textarea>
-	<button>Submit</button>
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Editor</title>
+	<link href="css/carousel.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+
+	<div id="blog-editor">
+		Blog Editor<br>
+		Title: <input type="text" id="new-blog-title">
+		Author: <input type="text" id="new-blog-author">
+		Tags: <input type="text" id="new-blog-tags">
+		Summary: <textarea id="new-blog-summary"></textarea>
+		Content: <textarea id="new-blog-content"></textarea>
+		<button class="submit-new-blog">Submit</button>
+	</div>
+
+
+	<div id="resource-editor">
+		Resource Editor<br>
+		Title: <input type="text" id="new-resource-title">
+		Author: <input type="text" id="new-resource-author">
+		<!-- Published: <input type="" name="">{ type: Date, default: Date.now }, -->
+		Summary: <input type="text" id="new-resource-summary">
+		Content: <textarea id="new-resource-content"></textarea>
+		Type: <input type="text" id="new-resource-type"> 
+		<button class="submit-new-resource">Submit</button>
+	</div>
+
+	<script>
+		function sendNewBlog() {
+			$.post('/api/blog', {
+				title: $('#new-blog-title').val(),
+				author: $('#new-blog-author').val(),
+				tags: $('#new-blog-tags').val(),
+				summary: $('#new-blog-summary').val(),
+				content: $('#new-blog-content').val()
+			}, function(response) {
+				var div = createBlogDiv(response);
+				$('#blogs').append(div);
+				// need to write the blogs div over in blog-list
+				div.find('.submit-new-blog').click(FUNCTION TO WRITE);
+			});
+		}
+
+		function sendNewResource() {
+			$.post('/api/resource', {
+				title: $('#new-resource-title').val(),
+				author: $('#new-resource-author').val(),
+				summary: $('#new-resource-summary').val(),
+				content: $('#new-resource-content').val(),
+				type: $('#new-resource-type').val(),
+			}, function(response) {
+				var div = createResourceDiv(response);
+				$('#resources').append(div);
+				// need to write the resources div over in resources-list
+				div.find('.submit-new-resource').click(FUNCTION TO WRITE);
+			});
+		}
+		
+
+	</script>
+
+</body>
+</html>
+

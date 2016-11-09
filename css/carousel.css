@@ -21,16 +21,21 @@ body {
 }
 
 /* Flip around the padding for proper display in narrow viewports */
+
+
 .navbar-wrapper > .container {
   padding-right: 0;
   padding-left: 0;
+  
 }
 .navbar-wrapper .navbar {
   padding-right: 15px;
   padding-left: 15px;
+
 }
 .navbar-wrapper .navbar .container {
   width: auto;
+
 }
 
 
@@ -58,6 +63,8 @@ body {
   left: 0;
   min-width: 100%;
   height: 500px;
+
+
 }
 
 
@@ -77,20 +84,6 @@ body {
   margin-left: 10px;
 }
 
-
-/* Featurettes
-------------------------- */
-
-.featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
-}
-
-/* Thin out the marketing headings */
-.featurette-heading {
-  font-weight: 300;
-  line-height: 1;
-  letter-spacing: -1px;
-}
 
 
 /* RESPONSIVE CSS
@@ -122,13 +115,13 @@ body {
     line-height: 1.4;
   }
 
-  .featurette-heading {
-    font-size: 50px;
-  }
 }
 
-@media (min-width: 992px) {
-  .featurette-heading {
-    margin-top: 120px;
-  }
+/* EDITOR
+________________________________________________________________*/
+
+#blog-editor {
+  margin-bottom: 20px;
 }
+
+
