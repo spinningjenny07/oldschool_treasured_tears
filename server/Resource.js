@@ -1,6 +1,6 @@
 module.exports = function(mongoose) {
 
-	var ResourceSchema = new mongoose.Schema({
+	var DVResourceSchema = new mongoose.Schema({
 		title: String,
 		author: String,
 		published: { type: Date, default: Date.now },
@@ -12,7 +12,7 @@ module.exports = function(mongoose) {
 		// comments: [Comment] // subdocument
 	});
 
-	var Resource = mongoose.model("Resource", ResourceSchema);
+	var DVResource = mongoose.model("Resource", ResourceSchema);
 
-	return Resource;
+	return DVResource;
 };
