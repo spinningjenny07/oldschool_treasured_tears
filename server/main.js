@@ -37,9 +37,43 @@ app.post("/api/blog", (req, res) => {
 	newBlog.save((err) => {
 		if(err) {
 			res.status(500);
-			res.send({status: "error", message: "Server error"});
+			res.send({status: "error", message: "So sorry! Something went wrong."});
 			return;
 		}
 		res.send(newBlog);
 	});
+});
+
+app.post("/api/resource", (req, res) => {
+	var newResource = newDVResource({
+		title: req.body.title,
+		author: req.body.author,
+		date: Date.now,
+		tags: req.body.tags,
+		summary: req.body.summary,
+		content: req.body.content,
+		type: req.body.content
+	});
+	newResource.save((err) => {
+		if(err) {
+			res.status(500);
+			res.send({status: "error", message: "So sorry! Something went wrong."});
+			return;
+		}
+		res.send(newResource);
+	});
+});
+
+app.use((req, res, next) => {
+	res.status(404);
+	res.send("File not found.");
+});
+
+app.use((req, res, next) => {
+	res.status(500);
+	res.send("500 error. Sorry, something went wrong.");
+});
+
+app.listen(PORT, () => {
+	console.log("Listening on Port: " + PORT);
 });

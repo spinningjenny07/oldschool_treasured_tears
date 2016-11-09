@@ -117,11 +117,21 @@ body {
 
 }
 
+/* RESOURCES-LIST
+________________________________________________________________*/
+
+.title {
+  background-image: url("images/climbing_sky.jpg");
+  background-color: #5a5a5a;
+  height: 500px;
+}
+
+
 /* EDITOR
 ________________________________________________________________*/
 
 #blog-editor {
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 
 
