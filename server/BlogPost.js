@@ -3,7 +3,7 @@ module.exports = function(mongoose) {
 	var BlogPostSchema = new mongoose.Schema({
 		title: String,
 		author: String,
-		published: { type: Date, default: Date.now },
+		published: String,
 		tags: [String],
 		summary: String,
 		content: String,

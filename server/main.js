@@ -46,14 +46,24 @@ app.get("/blog", (req, res) => {
 	res.sendFile(__dirname + "/FE/blog.html");
 });
 
+//GET survivor-resources
+app.get("/survivors", (req, res) => {
+	res.sendFile(__dirname + "/FE/survivor-resources.html");
+});
+
 
 
 //POST /api/blog - POST new blog
 app.post("/api/blog", (req, res) => {
+	var date = new Date();
+	var month = date.getUTCMonth() + 1;
+	var day = date.getUTCDate();
+	var year = date.getUTCFullYear();
+	var newdate = month + "." + day + "." + year;
 	var newBlog = new BlogPost({
 		title: req.body.title,
 		author: req.body.author,
-		date: Date.now(),
+		published: newdate,
 		tags: req.body.tags,
 		summary: req.body.summary,
 		content: req.body.content
@@ -86,6 +96,22 @@ app.post("/api/resource", (req, res) => {
 		}
 		res.send(newResource);
 	});
+});
+
+app.get("/api/blog", (req, res) => {
+	BlogPost.find(
+		{},
+		"published title summary author",
+		(err, data) => {
+			if(err) {
+				console.log(err);
+				res.status(500);
+				res.send("server error");
+				return;
+			}
+			res.send(data);
+		}
+	);
 });
 
 
