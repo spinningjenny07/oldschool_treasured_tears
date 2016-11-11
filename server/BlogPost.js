@@ -7,6 +7,7 @@ module.exports = function(mongoose) {
 		tags: [String],
 		summary: String,
 		content: String,
+		image: String
 		// comments: [Comment] // subdocument
 	});
 

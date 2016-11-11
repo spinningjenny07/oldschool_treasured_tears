@@ -1,9 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>The Treasured Tears Project</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="css/styles.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" integrity="sha256-iaqfO5ue0VbSGcEiQn+OeXxnxAMK2+QgHXIDA5bWtGI=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script>
 </head>
 <body>
+	<div class="navbar-wrapper">
+	  <div class="container">
 
+		<nav class="navbar navbar-inverse navbar-static-top">
+		  <div class="container">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">TTTP</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="index.html">Home</a></li>
+					<li><a href="#about">About</a></li>
+					<li><a href="#contact">Contact</a></li>
+					<li><a href ="./blog-list.html">Blog</a></li>
+					<li><a href="./resources-list.html">Resources</a></li>
+				</ul>
+			</div>
+		  </div>
+		</nav>
+	</div>
+</div>
+		<div class="jumbotron blog-tron">
+			<div class="container-fluid">
+				<h1>One Blog Post!!</h1>
+			</div>
+		</div>
+
+	  
+	<div class="blog-display">
+		<div id="target">Loading...</div>
+			<script id="template" type="x-tmpl-mustache">
+				<div data-id="{{_id}}" class="blog-div">
+					<div class="date">
+						<p class="blog-published">{{ published }}</p>
+					</div>
+					<div class="list-body">
+						<h1 class="blog-title">{{ title }}</h1>
+						<p class="blog-author">{{ author }}</p>
+						<p class="blog-content"{{ content }}</p>
+						<p class="blog-tags">{{ tags }}</p>
+					</div>
+				</div> 
+			</script>
+		</div>
+	</div>
+
+	<footer>
+		<p class="pull-right"><a href="#">Back to top</a></p>
+		<p>Photos by  <a href="http://www.jewelpeach.com">Jewel Peach Photography</a></p>
+	  </footer>
+
+	<script>
+	/* jslint esversion:6 */
+
+	function loadOneBlog() {
+		var template = $('#template').html();
+		$.get('/blog/' + document.location.hash.substring(1), (response) => {
+			$('#target').empty();
+	 			var rendered = Mustache.render(template, response);
+			$('#target').append(rendered);
+	  // }
+	//   $(".blog-div").click(function(evt) {
+	// 	var target = $(this);
+	// 	var id = target.data("id");
+	// 	document.location = "./blog.html#" + (id);
+	// 	});
+	});
+  }
+
+  $(document).ready(function () {
+	loadOneBlog();
+  });
+	</script>
 </body>
 </html>

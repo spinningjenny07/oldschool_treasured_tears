@@ -7,81 +7,100 @@
 	<title>The Treasured Tears Project</title>
   <link href="css/styles.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" integrity="sha256-iaqfO5ue0VbSGcEiQn+OeXxnxAMK2+QgHXIDA5bWtGI=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
-    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-    crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous"></script> 
 </head>
 <body>
+	<div>
 	<div class="navbar-wrapper">
-      <div class="container">
+	  <div class="container">
 
-        <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">TTTP</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href ="blog-list.html">Blog</a></li>
-                <li><a href="resources-list.html">Resources</a></li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-    <div class="jumbotron">
-      <div class="container-fluid">
-        <h1>Blog</h1>
-        <img src="../images/up_and_out.jpg" alt="girl climbing stairs">
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="blog-list">
-            <div class="blog-post">
-              <div id="target">Loading...</div>
-                <script id="template" type="x-tmpl-mustache">
-                  <p>{{ published }}</p>
-                  <h3>{{ title }}</h3>
-                  <p>{{ summary }}</p>
-                  <p>{{ author }}</p> 
-                </script>
-            </div>
-        </div>
-      </div>
-    </div>
+		<nav class="navbar navbar-inverse navbar-static-top">
+		  <div class="container">
+			<div class="navbar-header">
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			  </button>
+			  <a class="navbar-brand" href="#">TTTP</a>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+			  <ul class="nav navbar-nav">
+				<li class="active"><a href="index.html">Home</a></li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#contact">Contact</a></li>
+				<li><a href ="blog-list.html">Blog</a></li>
+				<li><a href="resources-list.html">Resources</a></li>
+			  </ul>
+			</div>
+		  </div>
+		</nav>
+	  </div>
+	</div>
+	<div class="jumbotron blog-list-tron">
+		<div class="container-fluid blog-header">
+			<h1 class="blog-header">Blog</h1>
+		</div>
+	</div>
+	<div class="container">
+	  <div class="row">
+		<div class="blog-list">
+			<div class="blog-post">
+			  <div id="target">Loading...</div>
+				<script id="template" type="x-tmpl-mustache">
+					<div data-id="{{_id}}" class="blog-div">
+						<div class="date">
+							<p class="blogs-published">{{ published }}</p>
+						</div>
+						<div class="list-body">
+							<h1 class="blogs-title">{{ title }}</h1>
+							<p class="blogs-summary">{{ summary }}</p>
+							<p class="blogs-author">{{ author }}</p>
+						</div>
+					</div> 
+				</script>
+			</div>
+		</div>
+	  </div>
+	</div>
+
+	<footer>
+		<p class="pull-right"><a href="#">Back to top</a></p>
+		<p>Photos by  <a href="http://www.jewelpeach.com">Jewel Peach Photography</a></p>
+	</footer>
+</div>
 
 <script>
 /* jslint esversion:6 */
   
 
   function loadBlogs() {
-    var template = $('#template').html();
-    $.get('/api/blog', (response) => {
-      $('#target').empty();
-      for(var blog of response) {
-        var rendered = Mustache.render(template, blog);
-          $('#target').append(rendered);
-      }
-    });
+	var template = $('#template').html();
+	$.get('/api/blogs', (response) => {
+	  $('#target').empty();
+	  for(var blog of response) {
+		var rendered = Mustache.render(template, blog);
+		  $('#target').append(rendered);
+	  }
+	  $(".blog-div").click(function(evt) {
+		var target = $(this);
+		var id = target.data("id");
+		document.location = "./blog.html#" + (id);
+		});
+	});
   }
 
   $(document).ready(function () {
-    loadBlogs();
+	loadBlogs();
   });
 
+  
+
 </script>
-    
-    
+	
+	
 </body>
 </html>

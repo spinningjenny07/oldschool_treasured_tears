@@ -3,8 +3,9 @@
 /* Padding below the footer and lighter body text */
 
 body {
-  padding-bottom: 40px;
-  color: #5a5a5a;
+	padding-bottom: 40px;
+	color: #5a5a5a;
+	background-color: #EEE;
 }
 
 
@@ -13,56 +14,66 @@ body {
 
 /* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 20;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	z-index: 20;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
 
 
 .navbar-wrapper > .container {
-  padding-right: 0;
-  padding-left: 0;
-  
+	padding-right: 0;
+	padding-left: 0;
+	
 }
 .navbar-wrapper .navbar {
-  padding-right: 15px;
-  padding-left: 15px;
+	padding-right: 15px;
+	padding-left: 15px;
 
 }
 .navbar-wrapper .navbar .container {
-  width: auto;
+	width: auto;
 
 }
 
-
+/*.index-tron {
+	background: url(../images/fear_not.jpg);
+	height: 500px;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}*/
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
 
 /* Carousel base class */
 .carousel {
-  height: 500px;
-  margin-bottom: 60px;
+	height: 500px;
+	margin-bottom: 60px;
+
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-  z-index: 10;
+	z-index: 10;
 }
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-  height: 500px;
-  background-color: #777;
+	height: 500px;
+	background-color: #777;
 }
 .carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  height: 500px;
+	/*object-fit: scale-down;*/
+
+	/*position: absolute;*/
+	top: 0;
+	left: 0;
+	min-width: 100%;
+	
 
 
 }
@@ -73,32 +84,115 @@ body {
 
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
-  margin-bottom: 20px;
-  text-align: center;
+	margin-bottom: 20px;
+	text-align: center;
 }
 .marketing h2 {
-  font-weight: normal;
+	font-weight: normal;
 }
 .marketing .col-lg-4 p {
-  margin-right: 10px;
-  margin-left: 10px;
+	margin-right: 10px;
+	margin-left: 10px;
 }
 
-/* RESOURCES-LIST
+/* BLOG-LIST
 ________________________________________________________________*/
 
-.title {
-  background-image: url("images/climbing_sky.jpg");
-  background-color: #5a5a5a;
-  height: 500px;
+/*.title {
+	background-image: url("images/climbing_sky.jpg");
+	background-color: #5a5a5a;
+	height: 500px;
+}*/
+
+.blog-list-tron {
+	background: url(../images/up_and_out.jpg);
+	height: 400px;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
+.blog-header {
+	color: #008000;
+	padding-top: 35px;
+	padding-left: 100px;
+}
+
+.blog-div {
+	margin-bottom: 10px;
+	color: #111;
+}
+
+.date {
+	background-image: url("../images/pink_glitter.jpg");
+	/*background-size: cover;*/
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  margin: 10px 0 0 10px;
+  position: relative;
+  float: left;
+}
+
+
+
+.list-body {
+	margin-left: 30px;
+}
+
+.blogs-published {
+	font-size: 20px;
+}
+
+.blogs-title {
+	font-size: 25px;
+}
+
+.blogs-summary {
+	font-size: 20px;
+}
+
+.blogs-author {
+	font-size: 15px;
+}
+
+/* BLOG
+___________________________________________________*/
+
+.blog-tron {
+
+}
 
 /* EDITOR
 ________________________________________________________________*/
 
 #blog-editor {
-  margin-bottom: 40px;
+	margin-bottom: 40px;
+}
+
+/* RESOURCE-LIST
+___________________________________________________*/
+
+.resource-tron {
+	background: url(../images/glitter_girl.jpg);
+	height: 700px;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/* Survivor RESOURCE-LIST
+___________________________________________________*/
+
+.survivor-tron {
+	background: url(../images/mt_nebo.jpg);
+	height: 700px;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 
@@ -106,30 +200,30 @@ ________________________________________________________________*/
 -------------------------------------------------- */
 
 @media (min-width: 768px) {
-  /* Navbar positioning foo */
-  .navbar-wrapper {
-    margin-top: 20px;
-  }
-  .navbar-wrapper .container {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-  .navbar-wrapper .navbar {
-    padding-right: 0;
-    padding-left: 0;
-  }
+	/* Navbar positioning foo */
+	.navbar-wrapper {
+		margin-top: 20px;
+	}
+	.navbar-wrapper .container {
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+	.navbar-wrapper .navbar {
+		padding-right: 0;
+		padding-left: 0;
+	}
 
-  /* The navbar becomes detached from the top, so we round the corners */
-  .navbar-wrapper .navbar {
-    border-radius: 4px;
-  }
+	/* The navbar becomes detached from the top, so we round the corners */
+	.navbar-wrapper .navbar {
+		border-radius: 4px;
+	}
 
-  /* Bump up size of carousel content */
-  .carousel-caption p {
-    margin-bottom: 20px;
-    font-size: 21px;
-    line-height: 1.4;
-  }
+	/* Bump up size of carousel content */
+	.carousel-caption p {
+		margin-bottom: 20px;
+		font-size: 21px;
+		line-height: 1.4;
+	}
 
 }
 

@@ -3,12 +3,15 @@ module.exports = function(mongoose) {
 	var DVResourceSchema = new mongoose.Schema({
 		title: String,
 		author: String,
-		published: { type: Date, default: Date.now },
+		published: String,
 		tags: [String],
 		summary: String,
 		content: String,
-		type: String 
-		//("link", "story", "media")
+		type: String,
+		isLink: Boolean,
+		url: String,
+		image: String
+		//("churches", "story", "video, shelter", "book", "organization", "urgent")
 		// comments: [Comment] // subdocument
 	});
 

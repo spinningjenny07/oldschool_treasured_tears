@@ -35,7 +35,7 @@
 
 	<script>
 		function sendNewBlog() {
-			$.post('/api/blog', {
+			$.post('/api/blog_new', {
 				title: $('#new-blog-title').val(),
 				author: $('#new-blog-author').val(),
 				tags: $('#new-blog-tags').val(),
@@ -49,7 +49,7 @@
 		$('#submit-new-blog').click(sendNewBlog);
 
 		function sendNewResource() {
-			$.post('/api/resource', {
+			$.post('/api/resource_new', {
 				title: $('#new-resource-title').val(),
 				author: $('#new-resource-author').val(),
 				summary: $('#new-resource-summary').val(),

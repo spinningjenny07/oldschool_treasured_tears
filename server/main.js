@@ -41,7 +41,7 @@ app.get("/resources-list", (req, res) => {
 	res.sendFile(__dirname + "/FE/resources-list.html");
 });
 
-//GET Blog Post
+//GET individual Blog Post
 app.get("/blog", (req, res) => {
 	res.sendFile(__dirname + "/FE/blog.html");
 });
@@ -51,10 +51,60 @@ app.get("/survivors", (req, res) => {
 	res.sendFile(__dirname + "/FE/survivor-resources.html");
 });
 
+//GET the list of blogs from DB and display on blog-list.html
+app.get("/api/blogs", (req, res) => {
+	BlogPost.find(
+		{},
+		"published title summary author",
+		(err, data) => {
+			if(err) {
+				console.log(err);
+				res.status(500);
+				res.send("server error");
+				return;
+			}
+			res.send(data);
+		}
+	);
+});
+
+//GET the list of resources from DB and display on ??.html
+app.get("/api/survivors", (req, res) => {
+	Resource.find(
+		//want to find the ones 
+		{},
+		"",
+		(err, data) => {
+			if(err) {
+				console.log(err);
+				res.status(500);
+				res.send("server error");
+				return;
+			}
+			res.send(data);
+		}
+	);
+});
+
+//GET the specific blog post with a given ID
+app.get('/blog/:id', (req, res) => {
+	BlogPost.findOne (
+		{_id: req.params.id},
+		(err, post) => {
+			if(err) {
+				console.log(err);
+				res.status(500);
+				res.send({status: "error", message: "So sorry! Something went wrong."});
+				return;
+			} 
+			res.send(post);
+		}
+	);
+});
 
 
-//POST /api/blog - POST new blog
-app.post("/api/blog", (req, res) => {
+//POST /api/blog - POST new blog from the editor
+app.post("/api/blog_new", (req, res) => {
 	var date = new Date();
 	var month = date.getUTCMonth() + 1;
 	var day = date.getUTCDate();
@@ -77,8 +127,8 @@ app.post("/api/blog", (req, res) => {
 		res.send(newBlog);
 	});
 });
-// POST/api/resource - POST a new resource
-app.post("/api/resource", (req, res) => {
+// POST/api/resource - POST a new resource from the editor
+app.post("/api/resource_new", (req, res) => {
 	var newResource = new DVResource({
 		title: req.body.title,
 		author: req.body.author,
@@ -98,21 +148,7 @@ app.post("/api/resource", (req, res) => {
 	});
 });
 
-app.get("/api/blog", (req, res) => {
-	BlogPost.find(
-		{},
-		"published title summary author",
-		(err, data) => {
-			if(err) {
-				console.log(err);
-				res.status(500);
-				res.send("server error");
-				return;
-			}
-			res.send(data);
-		}
-	);
-});
+
 
 
 
