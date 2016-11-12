@@ -10,7 +10,8 @@ module.exports = function(mongoose) {
 		type: String,
 		isLink: Boolean,
 		url: String,
-		image: String
+		image: String,
+		user: [String]
 		//("churches", "story", "video, shelter", "book", "organization", "urgent")
 		// comments: [Comment] // subdocument
 	});

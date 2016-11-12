@@ -18,6 +18,7 @@
 		Tags: <input type="text" id="new-blog-tags">
 		Summary: <textarea id="new-blog-summary"></textarea>
 		Content: <textarea id="new-blog-content"></textarea>
+
 		<button id="submit-new-blog">Submit</button>
 	</div>
 
@@ -26,10 +27,14 @@
 		Resource Editor<br>
 		Title: <input type="text" id="new-resource-title">
 		Author: <input type="text" id="new-resource-author">
-		<!-- Published: <input type="" name="">{ type: Date, default: Date.now }, -->
+		Tags: <input type="text" id="new-resource-tags">
 		Summary: <input type="text" id="new-resource-summary">
 		Content: <textarea id="new-resource-content"></textarea>
 		Type: <input type="text" id="new-resource-type"> 
+		Link: <input type="checkbox" id="new-resource-link">
+		url: <input type="text" id="new-resource-url">
+		image: <input type="text" id="new-resource-image">
+		user: <input type="text" id="new-resource-user">
 		<button id="submit-new-resource">Submit</button>
 	</div>
 
@@ -52,9 +57,14 @@
 			$.post('/api/resource_new', {
 				title: $('#new-resource-title').val(),
 				author: $('#new-resource-author').val(),
+				tags: $('#new-resource-tags').val(),
 				summary: $('#new-resource-summary').val(),
 				content: $('#new-resource-content').val(),
 				type: $('#new-resource-type').val(),
+				isLink: $('#new-resource-link').val(),
+				url: $('#new-resource-url').val(),
+				image: $("#new-resource-image").val(),
+				user: $('#new-resource-user').val()
 			}, function(response) {
 				console.log("Resource successfully posted");
 			});

@@ -60,7 +60,7 @@
 					<div class="list-body">
 						<h1 class="blog-title">{{ title }}</h1>
 						<p class="blog-author">{{ author }}</p>
-						<p class="blog-content"{{ content }}</p>
+						<p class="blog-content">{{ content }}</p>
 						<p class="blog-tags">{{ tags }}</p>
 					</div>
 				</div> 
@@ -76,24 +76,19 @@
 	<script>
 	/* jslint esversion:6 */
 
-	function loadOneBlog() {
+	function loadBlog() {
 		var template = $('#template').html();
 		$.get('/blog/' + document.location.hash.substring(1), (response) => {
+			console.log(response.content);
 			$('#target').empty();
 	 			var rendered = Mustache.render(template, response);
 			$('#target').append(rendered);
-	  // }
-	//   $(".blog-div").click(function(evt) {
-	// 	var target = $(this);
-	// 	var id = target.data("id");
-	// 	document.location = "./blog.html#" + (id);
-	// 	});
-	});
-  }
+		});
+  			}
 
-  $(document).ready(function () {
-	loadOneBlog();
-  });
+  		$(document).ready(function () {
+		loadBlog();
+  	});
 	</script>
 </body>
 </html>

@@ -69,11 +69,10 @@ app.get("/api/blogs", (req, res) => {
 });
 
 //GET the list of resources from DB and display on ??.html
-app.get("/api/survivors", (req, res) => {
-	Resource.find(
-		//want to find the ones 
-		{},
-		"",
+app.get("/api/resources", (req, res) => {
+	DVResource.find(
+		{type: "video"},
+		"image title summary",
 		(err, data) => {
 			if(err) {
 				console.log(err);
@@ -101,6 +100,8 @@ app.get('/blog/:id', (req, res) => {
 		}
 	);
 });
+
+//GET the specific blog post
 
 
 //POST /api/blog - POST new blog from the editor
@@ -136,7 +137,11 @@ app.post("/api/resource_new", (req, res) => {
 		tags: req.body.tags,
 		summary: req.body.summary,
 		content: req.body.content,
-		type: req.body.content
+		type: req.body.type,
+		link: req.body.link,
+		url: req.body.url,
+		image: req.body.image,
+		user: req.body.user
 	});
 	newResource.save((err) => {
 		if(err) {

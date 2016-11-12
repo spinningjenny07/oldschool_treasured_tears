@@ -39,12 +39,13 @@
 		</nav>
 	</div>
 </div>
+<h1>Videos</h1>
 <div id="target">Loading...</div>
 	<script id="template" type="x-tmpl-mustache">
 		<div class="row">
-			<div class="col-sm-6 col-md-4">
+			<div class="col-sm-6 col-md-3">
 				<div class="thumbnail">
-					<img src="{{ image }}" alt="image">
+					<img src="{{ image }}" alt"image">
 					<div class="caption">
 						<h3>{{ title }}</h3>
 					<p>{{ summary }}</p>
@@ -53,6 +54,31 @@
 			</div>
 		</div> 
 	</script>
+	<footer>
+		<p class="pull-right"><a href="#">Back to top</a></p>
+		<p>Photos by  <a href="http://www.jewelpeach.com">Jewel Peach Photography</a></p>
+	</footer>
+<script>
+/* jslint esversion:6 */
+	function loadVideos() {
+	var template = $('#template').html();
+	$.get('/api/resources', (response) => {
+	  $('#target').empty();
+	  for(var resource of response) {
+		var rendered = Mustache.render(template, resource);
+		  $('#target').append(rendered);
+	  }
+	  $(".blog-div").click(function(evt) {
+		var target = $(this);
+		var id = target.data("id");
+		document.location = "./video.html#" + (id);
+		});
+	});
+  }
 
+  $(document).ready(function () {
+	loadVideos();
+  });
+</script>
 </body>
 </html>
