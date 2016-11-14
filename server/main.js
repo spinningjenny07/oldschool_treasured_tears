@@ -101,7 +101,21 @@ app.get('/blog/:id', (req, res) => {
 	);
 });
 
-//GET the specific blog post
+//GET the specific video resource with a given ID
+app.get('/api/video-resource', (req, res) => {
+	DVResource.findOne (
+		{_id: req.params.id},
+		(err, post) => {
+			if(err) {
+				console.log(err);
+				res.status(500);
+				res.send({status: "error", message: "So sorry! Something went wrong."});
+				return;
+			}
+			res.send(post);
+		}
+	);
+});
 
 
 //POST /api/blog - POST new blog from the editor

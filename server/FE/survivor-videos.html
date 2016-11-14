@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<title>The Treasured Tears Project</title>
+	<link href="https://fonts.googleapis.com/css?family=Amaranth|Arima+Madurai|BenchNine|Fredericka+the+Great|Marmelad|Philosopher|Playball|Rambla|Special+Elite" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js" integrity="sha256-iaqfO5ue0VbSGcEiQn+OeXxnxAMK2+QgHXIDA5bWtGI=" crossorigin="anonymous"></script>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
@@ -57,20 +58,27 @@
 	</script>
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel">
   <div class="modal-dialog" role="document">
+  
 	<div class="modal-content">
 	  <div class="modal-header">
+	  <div id="modal-target">Loading...</div>
 		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		<script id="modal-template" type="x-tmpl-mustache">
+		<h4 class="modal-title" id="myModalLabel"> {{ title }}</h4>
 	  </div>
 	  <div class="modal-body">
+		<div class="video-template"> 
+			{{ url }}
+		</div>
+		<p class="video-content">{{ content }} </p>
+		<p class="video-date">{{ published }} </p>
 		
-		...
 	  </div>
+	</script>
 	  <div class="modal-footer">
 		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		<button type="button" class="btn btn-primary">Save changes</button>
 	  </div>
 	</div>
   </div>
@@ -93,7 +101,7 @@
 	  $("#target").click(function(evt) {
 		var target = $(this);
 		var id = target.data("id");
-		$('#myModal').modal("show");
+		$('#videoModal').modal("show");
 		});
 	});
   }
@@ -101,6 +109,21 @@
   $(document).ready(function () {
 	loadVideos();
   });
+
+  function loadVideo() {
+  	var videoTemplate = $('#modal-template').html();
+  	$.get('/api/video-resource'), (response) => {
+  		console.log(response.content);
+  		$('#modal-target').empty();
+			var rendered = Mustache.render(template, response);
+		$('#modal-target').modal(rendered);
+  	};
+  }
+
+  $(document).ready(function() {
+  	loadVideo();
+  });
+
 
 
 </script>

@@ -1,3 +1,13 @@
+/*font-family: 'Philosopher', sans-serif;
+font-family: 'BenchNine', sans-serif;
+font-family: 'Playball', cursive;
+font-family: 'Rambla', sans-serif;
+font-family: 'Special Elite', cursive;
+font-family: 'Marmelad', sans-serif;
+font-family: 'Amaranth', sans-serif;
+font-family: 'Arima Madurai', cursive;
+font-family: 'Fredericka the Great', cursive;*/
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -6,6 +16,7 @@ body {
 	padding-bottom: 40px;
 	color: #5a5a5a;
 	background-color: #EEE;
+	font-family: 'Playball', cursive;
 }
 
 
@@ -19,6 +30,7 @@ body {
 	right: 0;
 	left: 0;
 	z-index: 20;
+	font-size: 25px;
 }
 
 /* Flip around the padding for proper display in narrow viewports */
@@ -59,6 +71,7 @@ body {
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
 	z-index: 10;
+	font-size: 10px;
 }
 
 /* Declare heights because of positioning of img element */
@@ -67,14 +80,17 @@ body {
 	background-color: #777;
 }
 .carousel-inner > .item > img {
-	/*object-fit: scale-down;*/
-
-	/*position: absolute;*/
 	top: 0;
 	left: 0;
 	min-width: 100%;
-	
+}
 
+.index-title {
+	font-size: 50px;
+}
+
+.index-byline {
+	font-family: 'Amaranth', sans-serif;
 
 }
 
@@ -89,10 +105,13 @@ body {
 }
 .marketing h2 {
 	font-weight: normal;
+	
+
 }
 .marketing .col-lg-4 p {
 	margin-right: 10px;
 	margin-left: 10px;
+	font-family: 'Amaranth', sans-serif; 
 }
 
 /* BLOG-LIST
@@ -122,6 +141,7 @@ ________________________________________________________________*/
 .blog-div {
 	margin-bottom: 10px;
 	color: #111;
+	font-family: 'Amaranth', sans-serif;
 }
 
 .date {
@@ -130,13 +150,12 @@ ________________________________________________________________*/
   width: 140px;
   height: 140px;
   border-radius: 50%;
-  margin: 10px 0 0 10px;
+  margin: 10px 0 5px 10px;
   position: relative;
   float: left;
   padding-top: 55px;
   padding-left: 20px;
-  font-size: 40px;
-
+  font-size: 20px;
 }
 
 
@@ -149,10 +168,11 @@ ________________________________________________________________*/
 
 .blogs-published {
 	font-size: 20px;
+	padding-left: 12px;
 }
 
 .blogs-title {
-	font-size: 25px;
+	font-size: 30px;
 }
 
 .blogs-summary {
@@ -172,6 +192,34 @@ ___________________________________________________*/
 
 .blog-tron {
 
+}
+
+.blog-body {
+	/*margin-left: 20px;
+	
+	margin-top: 10px;
+	margin-right: 30px;*/
+	padding: 20px 40px 20px 40px;
+}
+
+.blog-title {
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.blog-author {
+	text-align: center;
+	padding-bottom: 20px;
+}
+
+.blog-content {
+	font-size: 18px;
+}
+
+.blog-date {
+	background-image: url("../images/peach_glitter.jpg");
+	font-size: 20px;
 }
 
 /* EDITOR
@@ -194,7 +242,7 @@ ___________________________________________________*/
 }
 
 .survivors-resources-link {
-	
+
 }
 
 /* Survivor RESOURCE-LIST
