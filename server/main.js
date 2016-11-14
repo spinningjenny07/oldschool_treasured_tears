@@ -138,7 +138,7 @@ app.post("/api/resource_new", (req, res) => {
 		summary: req.body.summary,
 		content: req.body.content,
 		type: req.body.type,
-		link: req.body.link,
+		isLink: req.body.isLink,
 		url: req.body.url,
 		image: req.body.image,
 		user: req.body.user

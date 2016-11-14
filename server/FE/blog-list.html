@@ -52,6 +52,9 @@
 			  <div id="target">Loading...</div>
 				<script id="template" type="x-tmpl-mustache">
 					<div data-id="{{_id}}" class="blog-div">
+						<div class="date-image">
+							<img src="{{ image }}" alt="circle color"/>
+						</div>
 						<div class="date">
 							<p class="blogs-published">{{ published }}</p>
 						</div>
@@ -67,7 +70,7 @@
 	  </div>
 	</div>
 
-	<footer>
+	<footer class="blog-list-footer">
 		<p class="pull-right"><a href="#">Back to top</a></p>
 		<p>Photos by  <a href="http://www.jewelpeach.com">Jewel Peach Photography</a></p>
 	</footer>

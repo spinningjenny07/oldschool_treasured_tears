@@ -11,6 +11,7 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"
 	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
 	crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="navbar-wrapper">
@@ -43,8 +44,8 @@
 <div id="target">Loading...</div>
 	<script id="template" type="x-tmpl-mustache">
 		<div class="row">
-			<div class="col-sm-6 col-md-3">
-				<div class="thumbnail">
+			<div class="col-sm-6 col-md-4">
+				<div id="video"class="thumbnail">
 					<img src="{{ image }}" alt"image">
 					<div class="caption">
 						<h3>{{ title }}</h3>
@@ -52,8 +53,29 @@
 					</div>
 				</div>
 			</div>
-		</div> 
+		</div>
 	</script>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+	<div class="modal-content">
+	  <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+	  </div>
+	  <div class="modal-body">
+		
+		...
+	  </div>
+	  <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="button" class="btn btn-primary">Save changes</button>
+	  </div>
+	</div>
+  </div>
+</div> 
+	
 	<footer>
 		<p class="pull-right"><a href="#">Back to top</a></p>
 		<p>Photos by  <a href="http://www.jewelpeach.com">Jewel Peach Photography</a></p>
@@ -68,10 +90,10 @@
 		var rendered = Mustache.render(template, resource);
 		  $('#target').append(rendered);
 	  }
-	  $(".blog-div").click(function(evt) {
+	  $("#target").click(function(evt) {
 		var target = $(this);
 		var id = target.data("id");
-		document.location = "./video.html#" + (id);
+		$('#myModal').modal("show");
 		});
 	});
   }
@@ -79,6 +101,8 @@
   $(document).ready(function () {
 	loadVideos();
   });
+
+
 </script>
 </body>
 </html>
