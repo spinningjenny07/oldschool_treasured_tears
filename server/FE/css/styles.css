@@ -117,12 +117,6 @@ body {
 /* BLOG-LIST
 ________________________________________________________________*/
 
-/*.title {
-	background-image: url("images/climbing_sky.jpg");
-	background-color: #5a5a5a;
-	height: 500px;
-}*/
-
 .blog-list-tron {
 	background: url(../images/up_and_out.jpg);
 	height: 400px;
@@ -146,16 +140,15 @@ ________________________________________________________________*/
 
 .date {
 	background-image: url("../images/peach_glitter.jpg");
-	/*background-size: cover;*/
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  margin: 10px 0 5px 10px;
-  position: relative;
-  float: left;
-  padding-top: 55px;
-  padding-left: 20px;
-  font-size: 20px;
+	width: 140px;
+	height: 140px;
+	border-radius: 50%;
+	margin: 10px 0 5px 10px;
+	position: relative;
+	float: left;
+	padding-top: 55px;
+	padding-left: 20px;
+	font-size: 20px;
 }
 
 
@@ -235,15 +228,35 @@ ___________________________________________________*/
 .resource-tron {
 	background: url(../images/glitter_girl.jpg);
 	height: 700px;
-	background-attachment: fixed;
+	/*background-attachment: fixed;*/
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
 }
 
-.survivors-resources-link {
-
+.resources-title {
+	margin-top: 100px;
 }
+
+.resource-options {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	
+}
+
+.people-helper:link, .fNf:link, .survivorA:link {
+	color: white;
+}
+
+.people-helper:visited, .fNf:visited, .survivorA:visited{
+    color: white;
+}
+
+/*.survivor-list-footer {
+	margin-top: 
+}*/
 
 /* Survivor RESOURCE-LIST
 ___________________________________________________*/

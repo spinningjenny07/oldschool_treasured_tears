@@ -16,7 +16,7 @@ var DVResourceConstructor = require("./Resource.js");
 var DVResource = DVResourceConstructor(mongoose);
 
 var bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use(express.static('FE'));
@@ -68,7 +68,7 @@ app.get("/api/blogs", (req, res) => {
 	);
 });
 
-//GET the list of resources from DB and display on ??.html
+//GET the list of resources from DB and display 
 app.get("/api/resources", (req, res) => {
 	DVResource.find(
 		{type: "video"},
@@ -102,9 +102,11 @@ app.get('/blog/:id', (req, res) => {
 });
 
 //GET the specific video resource with a given ID
-app.get('/api/video-resource', (req, res) => {
+app.post('/api/video-resource', (req, res) => {
+	console.log(req.body);
+
 	DVResource.findOne (
-		{_id: req.params.id},
+		{_id: req.body.id},
 		(err, post) => {
 			if(err) {
 				console.log(err);
@@ -112,6 +114,7 @@ app.get('/api/video-resource', (req, res) => {
 				res.send({status: "error", message: "So sorry! Something went wrong."});
 				return;
 			}
+			console.log()
 			res.send(post);
 		}
 	);

@@ -44,7 +44,7 @@
 <h1>Videos</h1>
 <div id="target">Loading...</div>
 	<script id="template" type="x-tmpl-mustache">
-		<div class="row">
+		<div id={{ _id }} class="row test">
 			<div class="col-sm-6 col-md-4">
 				<div id="video"class="thumbnail">
 					<img src="{{ image }}" alt"image">
@@ -70,7 +70,7 @@
 	  </div>
 	  <div class="modal-body">
 		<div class="video-template"> 
-			{{ url }}
+			<a href={{ url }}>{{ url }}</a>
 		</div>
 		<p class="video-content">{{ content }} </p>
 		<p class="video-date">{{ published }} </p>
@@ -98,31 +98,34 @@
 		var rendered = Mustache.render(template, resource);
 		  $('#target').append(rendered);
 	  }
-	  $("#target").click(function(evt) {
+	    $(".test").click(function(evt) {
 		var target = $(this);
-		var id = target.data("id");
+
+		var id = target.attr('id');
 		$('#videoModal').modal("show");
+
+		loadVideo(id);		
 		});
+
 	});
   }
 
   $(document).ready(function () {
 	loadVideos();
+
   });
 
-  function loadVideo() {
+  function loadVideo(id) {
+  	console.log(id);
   	var videoTemplate = $('#modal-template').html();
-  	$.get('/api/video-resource'), (response) => {
+  	$.post('/api/video-resource', {id:id}, (response) => {
   		console.log(response.content);
   		$('#modal-target').empty();
-			var rendered = Mustache.render(template, response);
-		$('#modal-target').modal(rendered);
-  	};
+			var rendered = Mustache.render(videoTemplate, response);
+		$('#modal-target').append(rendered);
+  	});
   }
 
-  $(document).ready(function() {
-  	loadVideo();
-  });
 
 
 
