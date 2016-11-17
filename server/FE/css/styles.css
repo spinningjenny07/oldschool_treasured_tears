@@ -119,7 +119,7 @@ body {
 ________________________________________________________________*/
 
 .blog-list-tron {
-	background: url(../images/up_and_out.jpg);
+	background: url(../images/iceland_huts.jpg);
 	height: 400px;
 	background-attachment: fixed;
 	background-position: center;
@@ -127,7 +127,7 @@ ________________________________________________________________*/
 	background-size: cover;
 }
 
-#whats-going-on {
+.blogs-header {
 	color: #008000;
 	padding-top: 150px;
 	padding-left: 300px;
@@ -186,9 +186,6 @@ ________________________________________________________________*/
 /* BLOG
 ___________________________________________________*/
 
-.blog-tron {
-
-}
 
 .blog-body {
 	/*margin-left: 20px;
@@ -235,6 +232,12 @@ ___________________________________________________*/
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	font-size: 100px;
+}
+
+.jumbotron h1 {
+	font-size: 100px;
+	margin-left: 20px;
 }
 
 .resources-title {
@@ -242,13 +245,17 @@ ___________________________________________________*/
 }
 
 .resource-options {
+	margin-top: 250px;
+}
+
+.resource-options h2{
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
 	flex-wrap: wrap;
-	margin-top: 150px;
-
-	
+	margin-top: 50px;
+	margin-right: 40px;
+	font-size: 40px;
 }
 
 .people-helper:link, .fNf:link, .survivorA:link, .survivor-list-footer:link {
