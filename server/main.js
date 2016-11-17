@@ -7,7 +7,7 @@ var mongoose = require("mongoose");
 
 const PORT = process.env.port || 8000;
 
-mongoose.connect("mongodb://localhost");
+mongoose.connect("mongodb://admin:password@ds157487.mlab.com:57487/treasuredtears");
 
 var BlogPostConstructor = require("./BlogPost.js");
 var BlogPost = BlogPostConstructor(mongoose);
