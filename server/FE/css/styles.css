@@ -303,6 +303,50 @@ ___________________________________________________*/
 	color: #606070;
 }
 
+/* Survivor VIDEO-LIST
+___________________________________________________*/
+
+.sv-title {
+	margin-top: 100px;
+	text-align: center;
+	font-size: 100px;
+}
+
+.sv-title h1 {
+	font-size: 50px;
+}
+
+.video-div {
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.flex-content {
+	min-height: 350px;
+	min-width: 350px;
+	margin: 10px 50px 0 0px;
+}
+
+.survivor-video-sum {
+	font-family: 'Amaranth', sans-serif;
+}
+
+.modal-title {
+	font-size: 30px;
+	text-align: center;
+}
+
+.video-content {
+	font-family: 'Amaranth', sans-serif;
+	font-size: 20px;
+	margin-top: 15px;
+}
+
+.survivor-video-link {
+	font-size: 20px;
+
+}
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */

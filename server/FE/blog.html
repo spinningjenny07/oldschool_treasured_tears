@@ -60,7 +60,7 @@
 					<div class="blog-body">
 						<h1 class="blog-title">{{ title }}</h1>
 						<p class="blog-author">by: {{ author }}</p>
-						<p class="blog-content">{{ content }}</p>
+						<p class="blog-content">{{{ content }}}</p>
 						<p class="blog-tags">tags: {{ tags }}</p>
 					</div>
 				</div> 
@@ -79,7 +79,13 @@
 	function loadBlog() {
 		var template = $('#template').html();
 		$.get('/blog/' + document.location.hash.substring(1), (response) => {
+			var content = response.content.split("\n");
+			// for (var line in content) {
+			// 	content[line] = "<br>" + content[line] + "<br>"; 
+			// }
+			response.content = content.join("<br>");
 			console.log(response.content);
+			console.log(content);
 			$('#target').empty();
 	 			var rendered = Mustache.render(template, response);
 			$('#target').append(rendered);
