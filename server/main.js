@@ -170,10 +170,6 @@ app.post("/api/resource_new", (req, res) => {
 	});
 });
 
-
-
-
-
 app.use((req, res, next) => {
 	res.status(404);
 	res.send("File not found.");

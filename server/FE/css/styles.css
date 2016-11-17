@@ -102,6 +102,7 @@ body {
 .marketing .col-lg-4 {
 	margin-bottom: 20px;
 	text-align: center;
+	margin-top: 300px;
 }
 .marketing h2 {
 	font-weight: normal;
@@ -126,10 +127,12 @@ ________________________________________________________________*/
 	background-size: cover;
 }
 
-.blog-header {
+#whats-going-on {
 	color: #008000;
-	padding-top: 35px;
-	padding-left: 100px;
+	padding-top: 150px;
+	padding-left: 300px;
+	font-size: 100px;
+
 }
 
 .blog-div {
@@ -235,7 +238,7 @@ ___________________________________________________*/
 }
 
 .resources-title {
-	margin-top: 100px;
+	margin-top: 200px;
 }
 
 .resource-options {
@@ -243,15 +246,21 @@ ___________________________________________________*/
 	flex-direction: column;
 	align-items: flex-end;
 	flex-wrap: wrap;
+	margin-top: 150px;
+
 	
 }
 
-.people-helper:link, .fNf:link, .survivorA:link {
+.people-helper:link, .fNf:link, .survivorA:link, .survivor-list-footer:link {
 	color: white;
 }
 
 .people-helper:visited, .fNf:visited, .survivorA:visited{
     color: white;
+}
+
+.survivor-list-footer {
+	margin-top: 300px;
 }
 
 /*.survivor-list-footer {
@@ -268,11 +277,34 @@ ___________________________________________________*/
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
+	color: white;
+}
+
+.survivor-heading {
+	text-align: center;
+	margin-top: 100px;
+	color: black;
 }
 
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
+
+@media (min-width: 1024px) {
+	.carousel-inner > .item, .blog-list-tron {
+		height: 800px;
+	}
+
+	 .resource-tron {
+		height: 1100px;
+	}
+
+	.survivor-tron {
+		height: 1100px;
+	}
+
+
+}
 
 @media (min-width: 768px) {
 	/* Navbar positioning foo */
