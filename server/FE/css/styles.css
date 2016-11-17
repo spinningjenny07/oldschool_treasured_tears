@@ -293,6 +293,16 @@ ___________________________________________________*/
 	color: black;
 }
 
+.survivor-categories {
+	display: flex;
+	justify-content: center;
+}
+
+.survivor-categories h2 {
+	margin: 20px;
+	color: #606070;
+}
+
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
